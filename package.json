@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "db": "json-server --watch db.json -m ./node_modules/json-server-auth",
     "serve:ssr:FW_Angular": "node dist/fw-angular/server/server.mjs"
   },
   "private": true,
@@ -20,7 +21,11 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.1",
+    "axios": "^1.8.3",
+    "bootstrap": "^5.3.3",
     "express": "^4.18.2",
+    "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

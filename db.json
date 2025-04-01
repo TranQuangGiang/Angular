@@ -1,0 +1,47 @@
+{
+  "product": [
+    {
+      "name": "Product 1 update 2",
+      "price": 30000,
+      "des": "mô tả sản phẩm update",
+      "danhmuc": "Danh mục 1",
+      "id": 1
+    },
+    {
+      "id": 3,
+      "name": "Product 2",
+      "price": 30000,
+      "des": "mô tả sản phẩm"
+    },
+    {
+      "name": "Oppo22",
+      "price": 50000,
+      "des": "mô tả",
+      "danhmuc": "Danh mục 3",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "giangtqph52177@gmail.com",
+      "password": "$2a$10$qVO7W1nfwsKl2SakPmmrNeGqd4s10TUPltDDQ7XF7tXl/DqgUmi7u",
+      "username": "trần quang giang",
+      "phone": 348892533,
+      "id": 1
+    },
+    {
+      "email": "hieuht@gmail.com",
+      "password": "$2a$10$sQDxldFXJe4WulgKp3sAdupNBRt8K7Wc4///ekpDDJbb30FnQVQiq",
+      "username": "hoàng trung hiếu",
+      "phone": 123456789,
+      "id": 2
+    },
+    {
+      "email": "an@gmail.com",
+      "password": "$2a$10$L5qsx8Jfnh9ApMdyfA3xBucyK0GWO/twokHtsDwkf5o9BTluCG4sG",
+      "username": "Trần Hoàng An",
+      "phone": 123456789,
+      "id": 3
+    }
+  ]
+}

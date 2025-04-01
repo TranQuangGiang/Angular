@@ -227,6 +227,11 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+      <input type="text" [(ngModel)]="title">
+
+      <h1 (mouseover)="countClick()">Count: {{count}}</h1>
+      <button (click)="countClick()">Click</button>
+      <router-outlet />
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
@@ -259,6 +264,7 @@
           </a>
         }
       </div>
+      
       <div class="social-links">
         <a
           href="https://github.com/angular/angular"
@@ -333,4 +339,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<router-outlet />

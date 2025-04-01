@@ -1,0 +1,28 @@
+<div class="container">
+    <h3>Thêm mới sản phẩm</h3>
+    <form #create="ngForm"
+      (ngSubmit)="onCreate(create.value)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Tên sản phẩm</label>
+        <input type="text" class="form-control" name="name" ngModel id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Giá sản phẩm</label>
+        <input type="number" class="form-control" ngModel name="price">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Mô tả sản phẩm</label>
+        <input type="text" class="form-control" ngModel name="des">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Danh mục</label>
+        <select class="form-select" name="danhmuc" ngModel aria-label="Default select example">
+          <option selected></option>
+          <option value="Danh mục 1">Danh mục 1</option>
+          <option value="Danh mục 2">Danh mục 2</option>
+          <option value="Danh mục 3">Danh mục 3</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
