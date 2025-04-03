@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'; // call api
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // làm việc với form
 import { Router } from '@angular/router'; // điều hướng
+import { AuthServicesService } from '../services/auth-services.service';
 
 @Component({
   selector: 'app-create',
@@ -11,13 +12,12 @@ import { Router } from '@angular/router'; // điều hướng
 })
 export class CreateComponent {
   constructor(
-    private api:HttpClient,
+    private auth:AuthServicesService,
     private router: Router
   ) {}
 
-  apiURL = 'http://localhost:3000/product'
   onCreate(data:any):void { // data dữ liệu người dùng nhập vào form
-    this.api.post(this.apiURL, data).subscribe(res => {
+    this.auth.create(data).subscribe(res => {
       if (res) {
         alert('Thêm mới thành công');
         this.router.navigate(['']);

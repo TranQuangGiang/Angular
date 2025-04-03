@@ -8,10 +8,11 @@
       "id": 1
     },
     {
-      "id": 3,
-      "name": "Product 2",
+      "name": "Product 2 update",
       "price": 30000,
-      "des": "mô tả sản phẩm"
+      "des": "mô tả sản phẩm update",
+      "danhmuc": "Danh mục 3",
+      "id": 3
     },
     {
       "name": "Oppo22",
@@ -42,6 +43,13 @@
       "username": "Trần Hoàng An",
       "phone": 123456789,
       "id": 3
+    },
+    {
+      "email": "quanggiang69.dev@gmail.com",
+      "password": "$2a$10$Lt8fDSr4AT2FVwd3s8WIFefB3z2bBDmui5XvEw07yx5foqwRr5aS.",
+      "username": "quanggiang",
+      "phone": 123456789,
+      "id": 4
     }
   ]
 }

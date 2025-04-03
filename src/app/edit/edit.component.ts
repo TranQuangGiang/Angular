@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'; // lấy parmas truyền trên url
 import { FormsModule } from '@angular/forms';
+import { AuthServicesService } from '../services/auth-services.service';
 
 @Component({
   selector: 'app-edit',
@@ -10,35 +11,31 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './edit.component.css'
 })
 export class EditComponent {
-  constructor ( 
-    private actRouter: ActivatedRoute,
-    private api:HttpClient,
-    private router:Router
+  constructor (
+    private auth:AuthServicesService,
+    private router:Router,
+    private actRouter:ActivatedRoute,
   ) {}
-  ngOnInit():void {
+  productOne:any ;
+  id:number = 0;
+  ngOnInit() {  
     const id = this.actRouter.snapshot.params['id'];
-    if (id) {
-      this.getDetail(id);
-    }
+    this.getDetail(id);
   }
-  apiURL = ' http://localhost:3000/product';
-  product:any = {};
-  getDetail(id:number):void {
-    this.api.get(`${this.apiURL}/${id}`).subscribe(res => {
-      if (res) {
-        this.product = res;
-      }
+  
+  getDetail(id:any):void {
+    this.auth.getOne(id).subscribe(res => {
+      this.productOne = res;
     })
   }
-  onEdit(data:any):void {
+  onEdit(values:any):void{
     const id = this.actRouter.snapshot.params['id'];
-    this.api.put(`${this.apiURL}/${id}`, data).subscribe(res => {
-      if (res) {
-        alert('Cập nhập thành công !');
+    this.auth.update(`${id}`, values).subscribe(res => {
+      if (res ) {
+        alert("Cập nhập thành công !");
         this.router.navigate(['']);
       }
     })
   }
   
- 
 }

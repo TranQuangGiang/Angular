@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthServicesService } from '../services/auth-services.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,12 +12,13 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
   constructor (
-    private api:HttpClient,
+    // private api:HttpClient, chuyển sang dùng service
+    private auth:AuthServicesService,
     private router:Router,
   ){}
-  apiUrl = `http://localhost:3000/register`;
+
   onSignup(values:any):void {
-    this.api.post(this.apiUrl, values).subscribe(res => {
+    this.auth.signup(values).subscribe(res => { // gọi sang hàm signup trong services
       if (res) {
         alert(`Đăng ký thành công !`);
         this.router.navigate(['./signin']);

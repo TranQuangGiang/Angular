@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthServicesService } from '../services/auth-services.service';
 
 @Component({
   selector: 'app-signin',
@@ -11,17 +11,16 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
   constructor(
-    private api:HttpClient,
+    private auth:AuthServicesService,
     private router:Router
   ){}
 
-  apiUrl = `http://localhost:3000/login`
   onSignin(values:any):void { 
-    this.api.post(this.apiUrl, values).subscribe(res => {
-      if (res) {
-        alert('Đăng nhập thành công !');
-        this.router.navigate(['']);
-      }
+    this.auth.signin(values).subscribe((res:any) => {
+      // lấy token lưu vào localStorage
+      localStorage.setItem("token", res.accessToken);
+      alert('Đăng nhập thành công !');
+      this.router.navigate(['']);
     })
   }
 }

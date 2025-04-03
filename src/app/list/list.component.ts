@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router'; // gắn link
+import { AuthServicesService } from '../services/auth-services.service';
 
 @Component({
   selector: 'app-list',
@@ -9,26 +10,24 @@ import { RouterLink } from '@angular/router'; // gắn link
   styleUrl: './list.component.css'
 })
 export class ListComponent { // khái báo biến khai báo hàm
-  constructor(private api:HttpClient) {} // thực thi ngay khi khởi tạo component
-  
-  ngOnInit():void {
-    this.getList();
-  } 
-  apiURL:string = 'http://localhost:3000/product';
-  ListProducts:any;
-  getList():void {
-    this.api.get(this.apiURL).subscribe(res => {
-      console.log(res);
-      // gán giá trị cho ListProducts
-      this.ListProducts = res;
-    });
+  constructor (
+    private auth: AuthServicesService,
+  ){}
+  ngOnInit() {
+    this.getAll();
   }
-  onDelete (id:number) {
-    if (confirm("Bạn chắc chứ ?")) {
-      this.api.delete(`${this.apiURL}/${id}`).subscribe(res => {
-        alert("Xóa thành công !");
-        this.getList();
-      })
-    }
+  listProduct: any;
+  getAll():void {
+    this.auth.getAll().subscribe(res => {
+      this.listProduct = res;
+    })
+  }
+  onDelete(id:any) {
+    this.auth.delete(id).subscribe(res => {
+      if (res ) {
+        alert('Xóa thành công !');
+        this.getAll();
+      }
+    })
   }
 }
